@@ -1,0 +1,6 @@
+<div class="container">
+    <ng-container *ngFor="let image of images; trackBy: imageById">
+        <img class="image" src={{image.urls.small}} alt="" (click)="openPreview(image.id)">
+    </ng-container>
+  </div>
+<button (click)="o()">kl</button>
