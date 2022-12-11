@@ -35,7 +35,6 @@ export class AddToFavoritesService {
   }
 
   trackImageToPreview(image: FavoriteImage){
-    debugger
     const favImage = this.findClickedImage(image); 
     if(favImage){
       this.fetchImagesService.trackImageForPreview = {...favImage}

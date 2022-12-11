@@ -13,13 +13,15 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { InfiniteScrollComponent } from './infinive-scroll/infinive-scroll.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageGalleryComponent,
     ImagePreviewComponent,
-    AddToFavoritesComponent
+    AddToFavoritesComponent,
+    InfiniteScrollComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   providers: [
-    {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=K41HZvzXsJtEyqMOYf78_7H9neKGvw6P1l5ideix7hY&count=6`},
+    {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=ysrlO6GJoG5ttWMLz1vi5OQyyH-GOw_PPjWvOWeTcEs&count=6`},
   ],
   bootstrap: [AppComponent]
 })

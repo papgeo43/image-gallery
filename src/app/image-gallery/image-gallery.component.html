@@ -1,5 +1,7 @@
-<div class="container">
-    <ng-container *ngFor="let image of images; trackBy: imageById">
-        <img class="image" src={{image.urls.small}} alt="" (click)="openPreview(image.id, image.urls.small)">
-    </ng-container>
-</div>
+    <app-infinite-scroll (scrolled)="onScroll()">
+        <div *ngIf="images.length" class="container" >
+            <div  *ngFor="let image of images; trackBy: imageById" >
+                <img class="image" src={{image.urls.small}} alt="" (click)="openPreview(image.id, image.urls.small)" >
+            </div>
+        </div>
+    </app-infinite-scroll>
