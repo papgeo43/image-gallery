@@ -8,7 +8,8 @@ const routes: Routes = [
   {path:'', component:ImageGalleryComponent},
   {path:'favorites', component:AddToFavoritesComponent},
   {path:'photos/:id', component:ImagePreviewComponent},
-  {path:'**',component: ImageGalleryComponent}
+  {path:'**', component:ImageGalleryComponent},
+  
 ];
   
 

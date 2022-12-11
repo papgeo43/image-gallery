@@ -15,7 +15,8 @@ export class FetchImagesService {
 
   fetchImages(): Observable<Image[]>{
    return this.http.get<Image[]>(`${this._usplashRandomPhoto}`).pipe(
-     tap((imagesList) => this.imagesForGallery = [...imagesList]),
+     tap((imagesList) => this.imagesForGallery = [...this.imagesForGallery,...imagesList]),
+     delay(200),
      catchError((err)=>{
        console.log(err)
        return of([])

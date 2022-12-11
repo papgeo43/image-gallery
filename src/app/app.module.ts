@@ -14,27 +14,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { InfiniteScrollComponent } from './infinive-scroll/infinive-scroll.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
     ImageGalleryComponent,
     ImagePreviewComponent,
     AddToFavoritesComponent,
-    InfiniteScrollComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    SharedModule,
     MatCardModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
-    {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=ysrlO6GJoG5ttWMLz1vi5OQyyH-GOw_PPjWvOWeTcEs&count=6`},
+    {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=n5VUEJhRQXtoRNvjcNOjlcjbFiFRWGm2i-UQgcxbvE8&count=6`},
   ],
   bootstrap: [AppComponent]
 })

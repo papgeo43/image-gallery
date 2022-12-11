@@ -4,7 +4,7 @@
              <img [src]="imageForPreview.src" alt="" (click)="imageToPreview()">
         </div>
         <mat-card-footer>
-            <div class="content__foooter">
+            <div class="content__footer">
                 <ng-container *ngIf="!isImageInFavorites; else removeFromFavorites">
                     <button mat-raised-button color="primary" (click)="addToFavorites()">Add to favorites</button>
                 </ng-container>

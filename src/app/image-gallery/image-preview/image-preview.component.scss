@@ -1,3 +1,8 @@
+mat-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .content {
     max-width: 500px;
     min-height: 400px;
@@ -12,17 +17,17 @@
       margin: 17px;
     }
 }
-  
-  img{
+
+.green-snackbar{
+  background: rgb(31, 122, 31);
+  color: white;
+}
+
+img{
     width: 369px;
     display: block;
     margin: auto;
     text-align: center;
     margin: 0;
 
-  }
-
-  .green-snackbar{
-    background: rgb(31, 122, 31);
-    color: white;
-  }
+}

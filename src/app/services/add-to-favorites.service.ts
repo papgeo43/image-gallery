@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BehaviorSubject } from 'rxjs';
-import { FavoriteImage, Image } from '../models/image';
+import { FavoriteImage } from '../models/image';
 import { FetchImagesService } from './fetch-images.service';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class AddToFavoritesService {
   constructor(private fetchImagesService: FetchImagesService, private _snackBar: MatSnackBar) { }
 
 
-  addToFavorites(favoriteImage: any){
+  addToFavorites(favoriteImage: FavoriteImage){
     const isImageAreadyInFavorites = this.findClickedImage(favoriteImage);
     if(isImageAreadyInFavorites){
       this._snackBar.open('Image is already saved', 'Close', {
@@ -20,13 +19,13 @@ export class AddToFavoritesService {
       });
       return;
     }
-    this.favoritesList.push(favoriteImage);
+    this.favoritesList = [favoriteImage];
   }
 
   removeImageFromFavorites(image:FavoriteImage){
     const favImg = this.findClickedImage(image);
     const updateList = this.favoritesList.filter(img => img.id !== favImg?.id);
-    return this.favoritesList = [...updateList]
+    return this.favoritesList = [...updateList];
   };
 
   findClickedImage(image: FavoriteImage){
@@ -37,7 +36,7 @@ export class AddToFavoritesService {
   trackImageToPreview(image: FavoriteImage){
     const favImage = this.findClickedImage(image); 
     if(favImage){
-      this.fetchImagesService.trackImageForPreview = {...favImage}
+      this.fetchImagesService.trackImageForPreview = {...favImage};
     }
   }
 

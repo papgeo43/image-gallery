@@ -22,7 +22,7 @@ export class AddToFavoritesComponent implements OnInit {
   }
 
   setSelectedImage(image: FavoriteImage){
-    this._addToFavoritesService.trackImageToPreview(image)
+    this._addToFavoritesService.trackImageToPreview(image);
   }
 
 }
