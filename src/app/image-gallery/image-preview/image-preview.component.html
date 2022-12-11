@@ -1,6 +1,21 @@
-<mat-card class="example-card">
-    <img mat-card-image [src]="imageForPreview" alt="">
-    <button mat-raised-button color="primary" (click)=addToFavorites()>Add to favorites</button>
+<mat-card class="content">
+    <mat-card-content>
+        <div class="content">
+             <img [src]="imageForPreview.src" alt="" (click)="imageToPreview()">
+        </div>
+        <mat-card-footer>
+            <div class="content__foooter">
+                <ng-container *ngIf="!isImageInFavorites; else removeFromFavorites">
+                    <button mat-raised-button color="primary" (click)="addToFavorites()">Add to favorites</button>
+                </ng-container>
+            </div>
+        </mat-card-footer>
+    </mat-card-content>
 
 </mat-card>
+
+<ng-template #removeFromFavorites>
+
+    <button mat-raised-button color="primary" (click)="removeImageFromFavorites()">Remove from favorites</button>
+</ng-template>
 

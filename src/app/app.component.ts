@@ -10,7 +10,7 @@ import { Image } from './models/image';
 })
 
 
-export class AppComponent  {
+export class AppComponent {
   title = 'photo-gallery';
  
 }

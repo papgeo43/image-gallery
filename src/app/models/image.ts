@@ -8,3 +8,9 @@ export interface Image {
     },
     width: number
   }
+
+  export interface FavoriteImage{
+      src: string;
+      id: string
+  }
+  

@@ -13,18 +13,18 @@ export class ImageGalleryComponent implements OnInit {
   constructor(private _fetchImagesService: FetchImagesService, private router: Router) {  }
 
   ngOnInit() {
-    
+    if(!this._fetchImagesService.imagesForGallery.length){
+      this._fetchImagesService.fetchImages().subscribe(newImages => {
+        this.images = [...this.images, ...newImages]
+      });
+    }else{
+      this.images = [...this._fetchImagesService.imagesForGallery]
+    }
   }
 
   openPreview(id: string, imageUrl: string){
-    this._fetchImagesService.trackImageForPreview = imageUrl;
+    this._fetchImagesService.trackImageForPreview = {src: imageUrl, id: id};
     this.router.navigate(['/photos', id]);
-  }
-
-  o(){
-    this._fetchImagesService.fetchImages().subscribe(newImages => {
-      this.images = [...this.images, ...newImages]
-    });
   }
 
   imageById(index:any, item:any ){

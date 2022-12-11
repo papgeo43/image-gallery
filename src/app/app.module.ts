@@ -12,6 +12,7 @@ import { AddToFavoritesComponent } from './image-gallery/add-to-favorites/add-to
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     MatCardModule,
     BrowserAnimationsModule,
-    MatButtonModule
-    
-    
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=K41HZvzXsJtEyqMOYf78_7H9neKGvw6P1l5ideix7hY&count=6`},

@@ -1,1 +1,5 @@
-<p>add-to-favorites works!</p>
+<div class="container">
+    <div *ngFor="let image of favoritesList">
+        <img src={{image.src}} alt="" (click)=navigateToPreview(image.src,image.id)>
+    </div>
+</div>

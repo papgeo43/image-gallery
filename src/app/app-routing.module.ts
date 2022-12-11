@@ -7,7 +7,8 @@ import { ImagePreviewComponent } from './image-gallery/image-preview/image-previ
 const routes: Routes = [
   {path:'', component:ImageGalleryComponent},
   {path:'favorites', component:AddToFavoritesComponent},
-  {path:'photos/:id', component:ImagePreviewComponent}
+  {path:'photos/:id', component:ImagePreviewComponent},
+  {path:'**',component: ImageGalleryComponent}
 ];
   
 
