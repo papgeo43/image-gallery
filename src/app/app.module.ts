@@ -11,6 +11,8 @@ import { ImagePreviewComponent } from './image-gallery/image-preview/image-previ
 import { AddToFavoritesComponent } from './image-gallery/add-to-favorites/add-to-favorites.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CommonModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
+    
+    
   ],
   providers: [
     {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=K41HZvzXsJtEyqMOYf78_7H9neKGvw6P1l5ideix7hY&count=6`},
