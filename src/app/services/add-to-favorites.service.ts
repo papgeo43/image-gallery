@@ -2,41 +2,43 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FavoriteImage } from '../models/image';
 import { FetchImagesService } from './fetch-images.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddToFavoritesService {
+  trackImageForPreview : FavoriteImage;
   favoritesList: FavoriteImage[] = [];
-  constructor(private fetchImagesService: FetchImagesService, private _snackBar: MatSnackBar) { }
+  constructor(private fetchImagesService: FetchImagesService, private _snackBar: MatSnackBar, private _notificationService: NotificationService) { }
 
 
   addToFavorites(favoriteImage: FavoriteImage){
-    const isImageAreadyInFavorites = this.findClickedImage(favoriteImage);
-    if(isImageAreadyInFavorites){
-      this._snackBar.open('Image is already saved', 'Close', {
-        duration: 1000
-      });
-      return;
+    const isImageAlredyInFavorites = this.isClickedImageToFavorites(favoriteImage);
+    if(isImageAlredyInFavorites){
+      this._notificationService.imageIsAlreadyInFavoritesNotification();
+    }else{
+      this._notificationService.addedToFavoritesNotification();
+      this.favoritesList.push(favoriteImage);
     }
-    this.favoritesList = [favoriteImage];
   }
 
+
   removeImageFromFavorites(image:FavoriteImage){
-    const favImg = this.findClickedImage(image);
+    const favImg = this.isClickedImageToFavorites(image);
     const updateList = this.favoritesList.filter(img => img.id !== favImg?.id);
+    this._notificationService.removeFromFavoritesNotification();
     return this.favoritesList = [...updateList];
   };
 
-  findClickedImage(image: FavoriteImage){
-    const img = this.favoritesList.find(favImg => favImg.id === image.id);
-    return img;
+  isClickedImageToFavorites(image: FavoriteImage){
+    return this.favoritesList.find(favImg => favImg.id === image.id);
   }
 
   trackImageToPreview(image: FavoriteImage){
-    const favImage = this.findClickedImage(image); 
+    const favImage = this.isClickedImageToFavorites(image); 
     if(favImage){
-      this.fetchImagesService.trackImageForPreview = {...favImage};
+      this.trackImageForPreview = {...favImage};
     }
   }
 

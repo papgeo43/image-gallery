@@ -1,4 +1,4 @@
 import { InjectionToken } from "@angular/core";
 
-export const usplashRandomPhoto = new InjectionToken<string>('usplashRandomPhoto')
+export const usplashRandomPhotoApi = new InjectionToken<string>('usplashRandomPhoto')
 

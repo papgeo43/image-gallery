@@ -4,7 +4,7 @@ import { HttpClientModule } from  '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { usplashRandomPhoto } from './tokens/unsplash-api';
+import { usplashRandomPhotoApi } from './tokens/unsplash-api';
 import { CommonModule } from '@angular/common';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { ImagePreviewComponent } from './image-gallery/image-preview/image-preview.component';
@@ -13,7 +13,6 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { InfiniteScrollComponent } from './infinive-scroll/infinive-scroll.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SharedModule } from './shared/shared.module';
 @NgModule({
@@ -36,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
     MatProgressSpinnerModule
   ],
   providers: [
-    {provide: usplashRandomPhoto, useValue:`https://api.unsplash.com/photos/random?client_id=n5VUEJhRQXtoRNvjcNOjlcjbFiFRWGm2i-UQgcxbvE8&count=6`},
+    {provide: usplashRandomPhotoApi, useValue:`https://api.unsplash.com/photos/random?client_id=n5VUEJhRQXtoRNvjcNOjlcjbFiFRWGm2i-UQgcxbvE8&count=6`},
   ],
   bootstrap: [AppComponent]
 })

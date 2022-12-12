@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddToFavoritesService } from 'src/app/services/add-to-favorites.service';
 import { FavoriteImage } from '../../models/image';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-add-to-favorites',
   templateUrl: './add-to-favorites.component.html',
-  styleUrls: ['./add-to-favorites.component.scss']
+  styleUrls: ['./add-to-favorites.component.scss'],
 })
 export class AddToFavoritesComponent implements OnInit {
 

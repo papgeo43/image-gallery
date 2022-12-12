@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FetchImagesService } from '../services/fetch-images.service';
 import {Image} from '../models/image'
 import { Router } from '@angular/router';
+import { AddToFavoritesService } from '../services/add-to-favorites.service';
 @Component({
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
@@ -9,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ImageGalleryComponent {
   images: Image[] = [...this._fetchImagesService.imagesForGallery];
-  constructor(private _fetchImagesService: FetchImagesService, private router: Router) {  }
+  constructor(private _fetchImagesService: FetchImagesService,private _addToFavoritesService: AddToFavoritesService, private _router: Router) {  }
 
   openPreview(id: string, imageUrl: string){
-    this._fetchImagesService.trackImageForPreview = {src: imageUrl, id: id};
-    this.router.navigate(['/photos', id]);
+    this._addToFavoritesService.trackImageForPreview = {src: imageUrl, id: id};
+    this._router.navigate(['/photos', id]);
   }
 
   imageById(index:any, item:any ){

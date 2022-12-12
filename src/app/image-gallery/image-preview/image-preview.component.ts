@@ -6,30 +6,27 @@ import { AddToFavoritesService } from '../../services/add-to-favorites.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { registerLocaleData } from '@angular/common';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../services/notification.service';
 @Component({
   selector: 'app-image-preview',
   templateUrl: './image-preview.component.html',
   styleUrls: ['./image-preview.component.scss'],
   encapsulation: ViewEncapsulation.None,
-
 })
 export class ImagePreviewComponent {
    
- constructor(private _fetchImagesService: FetchImagesService, private _addToFavorites: AddToFavoritesService, private _snackBar: MatSnackBar, private _router: Router) { }
+ constructor(private _fetchImagesService: FetchImagesService, private _addToFavoritesService: AddToFavoritesService, private _router: Router) { }
   
-  imageForPreview = {...this._fetchImagesService.trackImageForPreview};
-  isImageInFavorites = this._addToFavorites.findClickedImage(this.imageForPreview);
+  imageForPreview = {...this._addToFavoritesService.trackImageForPreview};
+  isImageInFavorites = this._addToFavoritesService.isClickedImageToFavorites(this.imageForPreview);
   
   addToFavorites(){
-    this._snackBar.open('Saved to favorites', 'Close', {
-      panelClass: 'green-snackbar',
-      duration: 1000
-    });
-    this._addToFavorites.addToFavorites(this.imageForPreview);
+   
+    this._addToFavoritesService.addToFavorites(this.imageForPreview);
   }
 
   removeImageFromFavorites(){
-    this._addToFavorites.removeImageFromFavorites(this.imageForPreview);
+    this._addToFavoritesService.removeImageFromFavorites(this.imageForPreview);
     this.navigateToFavoritesAfterRemoval();
   }
 
@@ -38,11 +35,6 @@ export class ImagePreviewComponent {
   }
 
   imageToPreview(){
-    this._addToFavorites.trackImageToPreview(this.imageForPreview)
+    this._addToFavoritesService.trackImageToPreview(this.imageForPreview)
   }
-
-  
-
-  
-
 }
