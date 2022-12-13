@@ -1,9 +1,14 @@
 <ul class="navigation">
-<li class="navigation item">
-  <a [routerLink]="['/']" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}">Image Gallery</a>
-</li>
-<li>
-  <a [routerLink]="['/favorites']" routerLinkActive="is-active"> Favorites</a>
-</li>
+  <li class="navigation item">
+    <a
+      [routerLink]="['/']"
+      routerLinkActive="is-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Image Gallery</a
+    >
+  </li>
+  <li>
+    <a [routerLink]="['/favorites']" routerLinkActive="is-active"> Favorites</a>
+  </li>
 </ul>
 <router-outlet></router-outlet>

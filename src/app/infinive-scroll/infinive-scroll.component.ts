@@ -15,7 +15,9 @@ import {
   templateUrl: './infinive-scroll.component.html',
   styleUrls: ['./infinive-scroll.component.scss'],
 })
-export class InfiniteScrollComponent implements OnInit, AfterViewInit, OnDestroy {
+export class InfiniteScrollComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @Input() options = {};
   @Output() scrolled = new EventEmitter();
   @ViewChild('anchor') anchor: ElementRef<HTMLElement>;
@@ -28,10 +30,9 @@ export class InfiniteScrollComponent implements OnInit, AfterViewInit, OnDestroy
     return this.host.nativeElement;
   }
 
-  ngOnInit() {
-     }
+  ngOnInit() {}
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     const options = {
       root: this.isHostScrollable() ? this.host.nativeElement : null,
       ...this.options,
@@ -42,7 +43,6 @@ export class InfiniteScrollComponent implements OnInit, AfterViewInit, OnDestroy
     }, options);
 
     this.observer.observe(this.anchor.nativeElement);
-
   }
 
   private isHostScrollable() {

@@ -1,7 +1,13 @@
-    <app-infinite-scroll (scrolled)="onScroll()">
-        <div *ngIf="images.length" class="container" >
-            <div  *ngFor="let image of images; trackBy: imageById" >
-                <img class="image" src={{image.urls.small}} alt="" (click)="openPreview(image.id, image.urls.small)" >
-            </div>
-        </div>
-    </app-infinite-scroll>
+<app-infinite-scroll (scrolled)="onScroll()">
+  <div *ngIf="images.length" class="container">
+    <div *ngFor="let image of images; trackBy: imageById">
+      <img
+        class="image"
+        src="{{ image.urls.small }}"
+        alt=""
+        (click)="openPreview(image.id, image.urls.small)"
+      />
+    </div>
+  </div>
+  <mat-spinner style="margin: 0 auto" *ngIf="loading$ | async"></mat-spinner>
+</app-infinite-scroll>

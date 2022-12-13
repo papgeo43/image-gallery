@@ -1,5 +1,10 @@
 <div class="container">
-    <div *ngFor="let image of favoritesList">
-        <img src={{image.src}} alt="" (click)=navigateToPreview(image.src,image.id)>
-    </div>
+  <div *ngFor="let image of favoritesList">
+    <img
+      src="{{ image.src }}"
+      alt=""
+      (click)="navigateToPreview(image.src, image.id)"
+    />
+  </div>
+  <mat-spinner style="margin: 0 auto" *ngIf="loading$ | async"></mat-spinner>
 </div>

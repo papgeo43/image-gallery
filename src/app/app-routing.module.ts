@@ -5,16 +5,14 @@ import { AddToFavoritesComponent } from './image-gallery/add-to-favorites/add-to
 import { ImagePreviewComponent } from './image-gallery/image-preview/image-preview.component';
 
 const routes: Routes = [
-  {path:'', component:ImageGalleryComponent},
-  {path:'favorites', component:AddToFavoritesComponent},
-  {path:'photos/:id', component:ImagePreviewComponent},
-  {path:'**', component:ImageGalleryComponent},
-  
+  { path: '', component: ImageGalleryComponent },
+  { path: 'favorites', component: AddToFavoritesComponent },
+  { path: 'photos/:id', component: ImagePreviewComponent },
+  { path: '**', pathMatch: 'full', component: ImageGalleryComponent },
 ];
-  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
